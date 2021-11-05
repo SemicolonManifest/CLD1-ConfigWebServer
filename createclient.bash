@@ -29,9 +29,22 @@ while [[ $passwordok -eq 0 ]]; do
     read -r password  # read the password
     stty "$stty_orig"    # restore terminal setting.
 
-    if [[ -n $password ]]; then
-            passwordok=1
+    if [[ -n $password ]]; then 
         else echo -e "\nPlease enter a password!"
+        firstpassSuccess=1
+    fi
+
+    if [[ $firstpassSuccess -eq 1 ]]; then
+        echo -ne "\nConfirm Password: "
+        stty_orig=$(stty -g) # save original terminal setting.
+        stty -echo           # turn-off echoing.
+        read -r confirmpassword  # read the password
+        stty "$stty_orig"    # restore terminal setting.
+
+        if [[ $passwd -eq $confirmpassword ]]; then
+        passwordok=1
+        else echo -e "\nPasswords did not match"
+        fi
     fi
 done
 
