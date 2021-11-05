@@ -5,7 +5,7 @@ Théo Gautier
 
 Cyril Goldenschue
 
-## Origin
+## Context
 
 This project is made in the context of the CLD1 module of the CPNV's ES developpement school. [The statment of the exercise](https://github.com/TGACPNV/CLD1-ConfigWebServer/blob/master/SharedHosting-statement.md) in french.
 
@@ -18,7 +18,7 @@ This project is made in the context of the CLD1 module of the CPNV's ES developp
 | php-fpm | 7.4 | 
 | nginx | 1.18.0 |
 
-# isolating homes
+# Isolating homes
 To prevent other users to acces to other home:
 ```
 sudo chmod o-rwx /home/*
@@ -27,8 +27,13 @@ sudo chmod o-rwx /home/*
 This command has to be ran after every creation of users without the script.
 
 
-## SSH with sudo
-SSH is installed by defalut on the system by the installer. There is nothing to do to install it.
+## Secure SSH for users with sudo access
+_This chapiter is optional._
+
+SSH is installed by defalut on the system by the installer. There is nothing to do to install it. If not:
+```
+sudo apt install ssh
+```
 
 SSH access is restricted to user who avec a sudo access. They are not allowed to use simple username-password authentication, they have to have a couple of public-private keys configured to login.
 
@@ -100,4 +105,6 @@ Customer websites are isolated with the fact that we create homes with "others" 
 
 # script of creation of users
 
-A script named `createClient.bash` is available on the repository to create clients.
+[A script]() named `createClient.bash` is available on the repository to create clients.
+
+This script has to be ran as root (with the root account or sudo).

@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Authors: theo.gautier@cpnv.ch, Cyril.GOLDENSCHUE@cpnv.ch
+# Last update date: 2021.11.05
+# Description: Script to run to create users in the project
+
 if [ "$EUID" -ne 0 ]
   then echo "Error: Please run as root. Aborted."
   exit
