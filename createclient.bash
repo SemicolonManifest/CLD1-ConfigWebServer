@@ -60,9 +60,9 @@ mkdir /home/${client}/www
 
 echo "${client}" >> /home/${client}/www/index.php
 
-chown ${client}:${client} -R /home/${client}
+chown ${client}:www-data -R /home/${client}
 
-chmod 770 -R /home/${client}
+chmod 750 -R /home/${client}
 
 echo "umask 007" >> /home/${client}/.bashrc
 
