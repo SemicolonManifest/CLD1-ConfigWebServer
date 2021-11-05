@@ -73,5 +73,7 @@ query_mysql="CREATE DATABASE ${client};
 GRANT ALL PRIVILEGES ON ${client}.* TO '${client}'@'%' IDENTIFIED BY '${password}';
 FLUSH PRIVILEGES;"
 
-mysql --execute="${mysql_query}"
+echo "${query_mysql}"
+
+mysql --execute="${query_mysql}"
 
