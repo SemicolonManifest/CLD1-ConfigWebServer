@@ -93,33 +93,6 @@ echo "server {
 
 ln -s /etc/nginx/sites-available/${client} /etc/nginx/sites-enabled/
 
-# create nginx config
-
-echo "creating nginx config"
-
-echo "server {
-    listen 80;
-    listen [::]:80;
-
-    server_name ${client}.ch www.${client}.ch;
-
-    root /home/${client}/www;
-    index index.html index.php;
-
-    location / {
-        try_files \$uri \$uri/ /index.php\$is_args\$args  =404;
-    }
-
-    location ~ \.php$ {
-        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-        fastcgi_pass unix:/var/run/php/php7.4fpm-${client}.sock;
-        fastcgi_index index.php;
-        include /etc/nginx/fastcgi_params;
-    }
-}" >> /etc/nginx/sites-available/${client}
-
-ln -s /etc/nginx/sites-available/${client} /etc/nginx/sites-enabled/
-
 # create php config
 
 echo -e "creating php config"
