@@ -43,7 +43,7 @@ useradd ${client} -p $(openssl passwd -crypt ${password}) -m -d "/home/${client}
 
 mkdir /home/${client}/www
 
-touch /home/${client}/www/index.php ${client}
+echo "${client}" >> /home/${client}/www/index.php
 
 chown ${client}:${client} -R /home/${client}
 
