@@ -20,7 +20,7 @@ done
 
 while [$passwordok = "false"]
 do
-    // from https://stackoverflow.com/questions/2654009/how-to-make-bash-script-ask-for-a-password
+    # from https://stackoverflow.com/questions/2654009/how-to-make-bash-script-ask-for-a-password
     echo "Password: "
     stty_orig=$(stty -g) # save original terminal setting.
     stty -echo           # turn-off echoing.
