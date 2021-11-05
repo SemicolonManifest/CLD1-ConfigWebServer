@@ -103,7 +103,7 @@ sudo systemctl restart mariadb.service
 # Customers isolation
 Customer websites are isolated with the fact that we create homes with "others" rights to 0 and set umask of customers to 027 (see: client creation script).
 
-# script of creation of users
+# Script to create users
 
 [A script]() named `createClient.bash` is available on the repository to create clients.
 
