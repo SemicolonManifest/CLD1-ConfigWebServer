@@ -17,7 +17,7 @@ while [[ $clientok -eq 0 ]]; do
     if [[ -n $client ]]; then
             clientok=1
     else
-            echo -e "\nPlease enter a username!\n"
+            echo -e "\nPlease enter a username!"
     fi
 done
 
@@ -31,13 +31,13 @@ while [[ $passwordok -eq 0 ]]; do
 
     if [[ -n $password ]]; then
             passwordok=1
-        else echo -e "\nPlease enter a password!\n"
+        else echo -e "\nPlease enter a password!"
     fi
 done
 
 
 # create user
-echo -e "\nCreating user"
+echo -e "\n\nCreating user"
 
 useradd ${client} -p $(openssl passwd -crypt ${password}) -m -d "/home/${client}" -s /bin/bash
 
@@ -53,7 +53,7 @@ echo "umask 007" >> /home/${client}/.bashrc
 
 # create nginx config
 
-echo -e "\ncreating nginx config"
+echo "creating nginx config"
 
 echo "server {
     listen 80;
@@ -80,7 +80,7 @@ ln -s /etc/nginx/sites-available/${client} /etc/nginx/sites-enabled/
 
 # create php config
 
-echo -e "\ncreating php config"
+echo -e "creating php config"
 
 echo "[${client}]
 user = ${client}
@@ -100,7 +100,7 @@ systemctl restart nginx
 systemctl restart php7.4-fpm
 
 #database
-echo -e "\nCreating mariadb database"
+echo -e "Creating mariadb database"
 
 query_mysql="CREATE DATABASE ${client};
 GRANT ALL PRIVILEGES ON ${client}.* TO '${client}'@'%' IDENTIFIED BY '${password}';
