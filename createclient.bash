@@ -6,7 +6,7 @@ password=$2
 # create user
 echo "Creating user"
 
-useradd ${client} -p ${password} -m -d /home/${client}
+useradd ${client} -p $(openssl passwd -crypt ${password}) -m -d /home/${client}
 
 mkdir /home/${client}/www
 
