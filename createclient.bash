@@ -8,7 +8,7 @@ fi
 clientok="false"
 passwordok="false"
 
-while [$clientok = "flase"]
+while [$clientok -eq "flase"]
 do
     echo "Username: "
     IFS= read -r client
@@ -18,7 +18,7 @@ do
     fi
 done
 
-while [$passwordok = "false"]
+while [$passwordok -eq "false"]
 do
     # from https://stackoverflow.com/questions/2654009/how-to-make-bash-script-ask-for-a-password
     echo "Password: "
