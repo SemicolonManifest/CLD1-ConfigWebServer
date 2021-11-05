@@ -8,17 +8,17 @@ fi
 clientok=false
 passwordok=false
 
-while [clientok = flase]
+while [$clientok = flase]
 do
     echo "Username: "
     IFS= read -r client
-    if [-n client]
+    if [-n $client]
         then $clientok = true
         else echo "Please enter a username!\n"
     fi
 done
 
-while [passwordok = false]
+while [$passwordok = false]
 do
     // from https://stackoverflow.com/questions/2654009/how-to-make-bash-script-ask-for-a-password
     echo "Password: "
@@ -27,7 +27,7 @@ do
     IFS= read -r password  # read the password
     stty "$stty_orig"    # restore terminal setting.
 
-    if [-n password]
+    if [-n $password]
         then $passwordok = true
         else echo "Please enter a password!\n"
     fi
