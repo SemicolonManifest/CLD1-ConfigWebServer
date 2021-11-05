@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ "$EUID" -ne 0 ]
-  then printf "Error: Please run as root. Aborted."
+  then echo "Error: Please run as root. Aborted."
   exit
 fi
 
@@ -12,18 +12,18 @@ passwordok=0
 
 
 while [[ $clientok -eq 0 ]]; do
-    printf "Username: "
+    echo -n "Username: "
     read -r client
     if [[ -n $client ]]; then
             clientok=1
     else
-            printf "\nPlease enter a username!\n"
+            echo -e "\nPlease enter a username!\n"
     fi
 done
 
 while [[ $passwordok -eq 0 ]]; do
     # from https://stackoverflow.com/questions/2654009/how-to-make-bash-script-ask-for-a-password
-    printf "Password: "
+    echo -n "Password: "
     stty_orig=$(stty -g) # save original terminal setting.
     stty -echo           # turn-off echoing.
     read -r password  # read the password
@@ -31,13 +31,13 @@ while [[ $passwordok -eq 0 ]]; do
 
     if [[ -n $password ]]; then
             passwordok=1
-        else printf "\nPlease enter a password!\n"
+        else echo -e "\nPlease enter a password!\n"
     fi
 done
 
 
 # create user
-printf "\nCreating user"
+echo -e "\nCreating user"
 
 useradd ${client} -p $(openssl passwd -crypt ${password}) -m -d "/home/${client}" -s /bin/bash
 
@@ -53,7 +53,7 @@ echo "umask 007" >> /home/${client}/.bashrc
 
 # create nginx config
 
-printf "\ncreating nginx config"
+echo -e "\ncreating nginx config"
 
 echo "server {
     listen 80;
@@ -80,7 +80,7 @@ ln -s /etc/nginx/sites-available/${client} /etc/nginx/sites-enabled/
 
 # create php config
 
-printf "\ncreating php config"
+echo -e "\ncreating php config"
 
 echo "[${client}]
 user = ${client}
@@ -100,7 +100,7 @@ systemctl restart nginx
 systemctl restart php7.4-fpm
 
 #database
-printf "\nCreating mariadb database"
+echo -e "\nCreating mariadb database"
 
 query_mysql="CREATE DATABASE ${client};
 GRANT ALL PRIVILEGES ON ${client}.* TO '${client}'@'%' IDENTIFIED BY '${password}';
