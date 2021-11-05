@@ -4,6 +4,10 @@
 Théo Gautier
 Cyril Goldenschue
 
+## Origin
+
+This project is made in the context of the CLD1 module of the CPNV's ES developpement school. [The statment of the exercise](https://github.com/TGACPNV/CLD1-ConfigWebServer/blob/master/SharedHosting-statement.md) in french.
+
 ## Softwares versions
 
 | name | version | 
