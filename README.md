@@ -79,6 +79,17 @@ Modifiy the file `/etc/mysql/mariadb.conf.d/50-server.cnf` and change the `bind-
 bind-address = 0.0.0.0
 ```
 
+Edit `/etc/mysql/mariadb.cnf` and uncomment the following line:
+```
+port = 3306
+```
+
+restart mariadb service
+```
+sudo systemctl restart mariadb.service
+```
+
+
 # Customers isolation
 Customer websites are isolated with the fact that we create homes with "others" rights to 0 and set umask of customers to 027 (see: client creation script).
 
