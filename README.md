@@ -105,6 +105,6 @@ Customer websites are isolated with the fact that we create homes with "others" 
 
 # Script to create users
 
-[A script]() named `createClient.bash` is available on the repository to create clients.
+[A script](https://github.com/TGACPNV/CLD1-ConfigWebServer/blob/master/createclient.bash) named `createClient.bash` is available on the repository to create clients.
 
 This script has to be ran as root (with the root account or sudo).
