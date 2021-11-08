@@ -33,7 +33,7 @@ SSH is installed by defalut on the system by the installer. There is nothing to 
 sudo apt install ssh
 ```
 
-SSH access is restricted to user who have a sudo access. They are not allowed to use simple username-password authentication, they have to have a couple of public-private keys configured to login.
+SSH access is restricted for the users who have a sudo access. They are not allowed to use simple username-password authentication, they have to have a couple of public-private keys configured to login.
 
 To configure it we setup a rule int `/etc/ssh/sshd_config`:
 
