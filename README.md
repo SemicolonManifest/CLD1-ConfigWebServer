@@ -1,9 +1,7 @@
 #	SharedHosting
 
 ## Autors
-Théo Gautier
-
-Cyril Goldenschue
+Théo Gautier, Cyril Goldenschue
 
 ## Context
 
@@ -19,7 +17,7 @@ This project is made in the context of the CLD1 module of the CPNV's ES developp
 | nginx | 1.18.0 |
 
 # Isolating homes
-To prevent other users to acces to other home:
+To prevent other users to acces to other users homes:
 ```
 sudo chmod o-rwx /home/*
 ```
